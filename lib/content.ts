@@ -60,6 +60,8 @@ export type WorkItem = {
   meta: string;
   /** Center label on the phone screen. */
   reelLabel: string;
+  /** Optional live-status pill shown beside the meta kicker (e.g. "Just released"). */
+  status?: string;
   headline: string;
   context: string;
   outcome: string;
@@ -89,12 +91,13 @@ export const workItems: WorkItem[] = [
   },
   {
     label: "Driftless",
-    meta: "Driftless · 2025 · Designer + builder",
+    meta: "Driftless · 2026 · Designer + builder",
     reelLabel: "[ prototype reel ]",
-    headline: "A new consumer app, launching in the App Store soon.",
+    status: "Just released",
+    headline: "A new consumer app, now live in the App Store.",
     context:
-      "[ Project context drops in here once the launch is finalized. The reel will show real prototype footage from the iOS build. ]",
-    outcome: "[ Outcome line — early traction and reception once live. ]",
+      "[ Copy coming — fill in once we've got our launch narrative. The reel above will show real footage from the live iOS build. ]",
+    outcome: "[ Outcome line — early downloads, reception, and momentum. ]",
   },
 ];
 

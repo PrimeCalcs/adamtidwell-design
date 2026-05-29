@@ -17,7 +17,20 @@ export default function Work() {
             <PhoneReel label={item.label} reelLabel={item.reelLabel} />
 
             <div>
-              <div className={`mb-3 ${tokens.projMeta}`}>{item.meta}</div>
+              {item.status ? (
+                <div className="mb-3 flex flex-wrap items-center justify-between gap-3">
+                  <span className={tokens.projMeta}>{item.meta}</span>
+                  <span className="inline-flex flex-shrink-0 items-center gap-1.5 rounded-full bg-accent px-[11px] py-[5px] font-mono text-[10px] uppercase tracking-label text-background">
+                    <span
+                      aria-hidden
+                      className="h-[5px] w-[5px] rounded-full bg-[#5EC98A] shadow-[0_0_0_3px_rgba(94,201,138,0.25)]"
+                    />
+                    {item.status}
+                  </span>
+                </div>
+              ) : (
+                <div className={`mb-3 ${tokens.projMeta}`}>{item.meta}</div>
+              )}
               <h3 className={`mb-3.5 ${tokens.projTitle}`}>
                 {preventWidows(item.headline)}
               </h3>
