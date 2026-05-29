@@ -2,7 +2,7 @@ import FadeIn from "@/components/ui/FadeIn";
 import Eyebrow from "@/components/ui/Eyebrow";
 import PhoneReel from "@/components/ui/PhoneReel";
 import { workItems } from "@/lib/content";
-import { preventWidows } from "@/lib/typography";
+import { preventWidows, tokens } from "@/lib/typography";
 
 export default function Work() {
   return (
@@ -22,22 +22,20 @@ export default function Work() {
                     platform={item.platform}
                     reelLabel={item.reelLabel}
                   />
-                  <span className="mt-4 block text-center font-mono text-[11px] uppercase tracking-label text-faint md:text-left">
+                  <span className={`mt-4 block text-center md:text-left ${tokens.meta}`}>
                     {item.label}
                   </span>
                 </div>
 
                 <figcaption className="max-w-prose space-y-4">
-                  <p className="font-mono text-[11px] uppercase tracking-label text-faint">
-                    {item.meta}
-                  </p>
-                  <h3 className="text-balance text-2xl font-medium leading-snug text-foreground md:text-[1.75rem]">
+                  <p className={tokens.meta}>{item.meta}</p>
+                  <h3 className={tokens.headline}>
                     {preventWidows(item.headline)}
                   </h3>
-                  <p className="text-pretty text-base leading-relaxed text-muted md:text-[1.0625rem] md:leading-7">
+                  <p className={`text-muted ${tokens.body}`}>
                     {preventWidows(item.context)}
                   </p>
-                  <p className="border-l border-line pl-4 text-pretty text-base leading-relaxed text-foreground/80 md:text-[1.0625rem] md:leading-7">
+                  <p className={`border-l border-line pl-4 text-foreground/80 ${tokens.body}`}>
                     {preventWidows(item.outcome)}
                   </p>
                 </figcaption>

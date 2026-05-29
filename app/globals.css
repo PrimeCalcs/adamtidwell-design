@@ -38,9 +38,4 @@
   .section-rule {
     @apply border-t border-line;
   }
-
-  /* Wide-tracked monospace micro-label used for eyebrows and meta. */
-  .eyebrow {
-    @apply font-mono text-[11px] uppercase tracking-label text-label;
-  }
 }

@@ -1,7 +1,7 @@
 import FadeIn from "@/components/ui/FadeIn";
 import Eyebrow from "@/components/ui/Eyebrow";
 import { about } from "@/lib/content";
-import { preventWidows } from "@/lib/typography";
+import { preventWidows, tokens } from "@/lib/typography";
 
 export default function About() {
   return (
@@ -11,7 +11,7 @@ export default function About() {
       </FadeIn>
 
       <FadeIn delay={0.08}>
-        <div className="mt-8 max-w-prose space-y-5 text-pretty text-lg leading-relaxed text-muted">
+        <div className={`mt-8 max-w-prose space-y-5 text-muted ${tokens.lead}`}>
           {about.paragraphs.map((paragraph) => (
             <p key={paragraph.slice(0, 24)}>{preventWidows(paragraph)}</p>
           ))}

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { site, heroPitch } from "@/lib/content";
+import { tokens } from "@/lib/typography";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 
@@ -14,19 +15,15 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease }}
       >
-        <h1 className="text-4xl font-medium tracking-tight text-foreground md:text-[3.5rem] md:leading-[1.05]">
-          {site.name}
-        </h1>
+        <h1 className={tokens.display}>{site.name}</h1>
 
-        <p className="mt-3 font-mono text-sm tracking-tight text-faint">
-          {site.role}
-        </p>
+        <p className={`mt-3 ${tokens.role}`}>{site.role}</p>
 
         <motion.p
           initial={{ opacity: 0, y: 8 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.45, ease }}
-          className="mt-8 max-w-prose text-pretty text-lg leading-relaxed text-muted md:text-xl"
+          className={`mt-8 max-w-prose text-muted ${tokens.lead}`}
         >
           {heroPitch.map((segment, i) =>
             segment.strong ? (

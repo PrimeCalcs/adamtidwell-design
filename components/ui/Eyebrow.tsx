@@ -1,3 +1,5 @@
+import { tokens } from "@/lib/typography";
+
 type EyebrowProps = {
   children: React.ReactNode;
   as?: "p" | "span" | "h2";
@@ -10,5 +12,5 @@ export default function Eyebrow({
   as: Tag = "p",
   className = "",
 }: EyebrowProps) {
-  return <Tag className={`eyebrow ${className}`}>{children}</Tag>;
+  return <Tag className={`${tokens.eyebrow} ${className}`}>{children}</Tag>;
 }

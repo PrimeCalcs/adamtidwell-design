@@ -2,7 +2,7 @@ import Link from "next/link";
 import FadeIn from "@/components/ui/FadeIn";
 import Eyebrow from "@/components/ui/Eyebrow";
 import { contact } from "@/lib/content";
-import { preventWidows } from "@/lib/typography";
+import { preventWidows, tokens } from "@/lib/typography";
 
 export default function Contact() {
   return (
@@ -14,7 +14,7 @@ export default function Contact() {
         <div className="rounded-2xl border border-line bg-surface p-8 md:p-12">
           <Eyebrow as="h2">{contact.heading}</Eyebrow>
 
-          <p className="mt-4 max-w-prose text-pretty text-lg leading-relaxed text-muted">
+          <p className={`mt-4 max-w-prose text-muted ${tokens.lead}`}>
             {preventWidows(contact.description)}
           </p>
 

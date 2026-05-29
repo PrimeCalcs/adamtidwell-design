@@ -1,5 +1,6 @@
 import FadeIn from "@/components/ui/FadeIn";
 import { proofStats } from "@/lib/content";
+import { tokens } from "@/lib/typography";
 
 export default function Proof() {
   return (
@@ -13,12 +14,8 @@ export default function Proof() {
             }
           >
             <FadeIn delay={index * 0.08}>
-              <p className="text-3xl font-medium tracking-tight text-foreground md:text-4xl">
-                {stat.value}
-              </p>
-              <p className="mt-2 font-mono text-[11px] uppercase tracking-label text-faint">
-                {stat.label}
-              </p>
+              <p className={tokens.stat}>{stat.value}</p>
+              <p className={`mt-2 ${tokens.meta}`}>{stat.label}</p>
             </FadeIn>
           </li>
         ))}

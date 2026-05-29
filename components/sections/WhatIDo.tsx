@@ -1,7 +1,7 @@
 import FadeIn from "@/components/ui/FadeIn";
 import Eyebrow from "@/components/ui/Eyebrow";
 import { services } from "@/lib/content";
-import { preventWidows } from "@/lib/typography";
+import { preventWidows, tokens } from "@/lib/typography";
 
 export default function WhatIDo() {
   return (
@@ -18,10 +18,10 @@ export default function WhatIDo() {
                 <p className="font-mono text-xs text-faint md:col-span-1">
                   0{index + 1}
                 </p>
-                <h3 className="text-xl font-medium text-foreground md:col-span-3 md:text-2xl">
+                <h3 className={`md:col-span-3 ${tokens.subhead}`}>
                   {service.title}
                 </h3>
-                <p className="text-pretty text-base leading-relaxed text-muted md:col-span-8 md:text-[1.0625rem] md:leading-7">
+                <p className={`text-muted md:col-span-8 ${tokens.body}`}>
                   {preventWidows(service.description)}
                 </p>
               </div>
