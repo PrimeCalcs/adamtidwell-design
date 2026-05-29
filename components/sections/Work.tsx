@@ -2,48 +2,29 @@ import FadeIn from "@/components/ui/FadeIn";
 import Eyebrow from "@/components/ui/Eyebrow";
 import PhoneReel from "@/components/ui/PhoneReel";
 import { workItems } from "@/lib/content";
-import { preventWidows, tokens } from "@/lib/typography";
+import { tokens } from "@/lib/typography";
 
 export default function Work() {
   return (
-    <section className="mx-auto mt-24 max-w-content px-6 md:mt-32 md:px-8">
-      <FadeIn>
-        <Eyebrow as="h2">Selected work</Eyebrow>
-      </FadeIn>
+    <div>
+      <Eyebrow as="h2" className="mb-6 mt-16">
+        Selected work
+      </Eyebrow>
 
-      <ul className="mt-10 space-y-16 md:space-y-24">
-        {workItems.map((item, index) => (
-          <li key={item.label}>
-            <FadeIn delay={index * 0.08}>
-              <figure className="grid grid-cols-1 items-start gap-8 md:grid-cols-[240px_1fr] md:gap-12">
-                <div className="relative">
-                  <PhoneReel
-                    duration={item.duration}
-                    platform={item.platform}
-                    reelLabel={item.reelLabel}
-                  />
-                  <span className={`mt-4 block text-center md:text-left ${tokens.meta}`}>
-                    {item.label}
-                  </span>
-                </div>
+      {workItems.map((item, index) => (
+        <FadeIn key={item.label} delay={index * 0.06}>
+          <div className="mb-16 grid grid-cols-1 items-start gap-8 sm:grid-cols-[200px_1fr] sm:gap-10">
+            <PhoneReel label={item.label} reelLabel={item.reelLabel} />
 
-                <figcaption className="max-w-prose space-y-4">
-                  <p className={tokens.meta}>{item.meta}</p>
-                  <h3 className={tokens.headline}>
-                    {preventWidows(item.headline)}
-                  </h3>
-                  <p className={`text-muted ${tokens.body}`}>
-                    {preventWidows(item.context)}
-                  </p>
-                  <p className={`border-l border-line pl-4 text-foreground/80 ${tokens.body}`}>
-                    {preventWidows(item.outcome)}
-                  </p>
-                </figcaption>
-              </figure>
-            </FadeIn>
-          </li>
-        ))}
-      </ul>
-    </section>
+            <div>
+              <div className={`mb-3 ${tokens.projMeta}`}>{item.meta}</div>
+              <h3 className={`mb-3.5 ${tokens.projTitle}`}>{item.headline}</h3>
+              <p className={`mb-4 ${tokens.projBody}`}>{item.context}</p>
+              <p className={tokens.outcome}>{item.outcome}</p>
+            </div>
+          </div>
+        </FadeIn>
+      ))}
+    </div>
   );
 }

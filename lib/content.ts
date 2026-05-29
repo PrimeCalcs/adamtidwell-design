@@ -4,7 +4,15 @@ export const site = {
   availability: "Available — Q3 2026",
   ctaLabel: "Book a call",
   ctaHref: "#contact",
-  ctaTrailing: "— or keep scrolling for the work.",
+  ctaTrailing: " — or keep scrolling for the work.",
+} as const;
+
+/** Logo mark in the nav links out to the personal brand. */
+export const brand = {
+  logo: "/at-mark.png",
+  logoAlt: "Adam Tidwell",
+  href: "https://princeofroanoke.com",
+  tooltip: "princeofroanoke.com ↗",
 } as const;
 
 /**
@@ -34,8 +42,7 @@ export const services = [
   },
   {
     title: "Design",
-    description:
-      "Shape interfaces that feel inevitable, not ornamental.",
+    description: "Shape interfaces that feel inevitable, not ornamental.",
   },
   {
     title: "Build",
@@ -45,12 +52,11 @@ export const services = [
 ] as const;
 
 export type WorkItem = {
-  /** Short label shown on the phone mockup. */
+  /** Short label shown in the phone's top-left corner. */
   label: string;
-  /** Meta line: name · years · role. */
+  /** Meta kicker: name · years · role. */
   meta: string;
-  platform: string;
-  duration: string;
+  /** Center label on the phone screen. */
   reelLabel: string;
   headline: string;
   context: string;
@@ -60,9 +66,7 @@ export type WorkItem = {
 export const workItems: WorkItem[] = [
   {
     label: "PalmAgent",
-    meta: "PalmAgent · 2019–2024 · Lead product designer",
-    platform: "iOS",
-    duration: "00:42",
+    meta: "PalmAgent · 2017–2025 · Lead product designer",
     reelLabel: "[ prototype reel ]",
     headline: "Closing-cost software used by 500,000 real estate pros.",
     context:
@@ -73,10 +77,9 @@ export const workItems: WorkItem[] = [
   {
     label: "Rep Dash",
     meta: "Rep Dashboard · 2021 · Design + engineering",
-    platform: "iOS",
-    duration: "00:42",
     reelLabel: "[ prototype reel ]",
-    headline: "The control room behind 1,000+ title reps and their agent clients.",
+    headline:
+      "The control room behind 1,000+ title reps and their agent clients.",
     context:
       "Designed and shipped the internal platform title company reps and managers used to manage client accounts across the PalmAgent network — renewals, reassignments, account expirations, and team oversight. Full ownership from architecture through interface.",
     outcome:
@@ -85,8 +88,6 @@ export const workItems: WorkItem[] = [
   {
     label: "Driftless",
     meta: "Driftless · 2025 · Designer + builder",
-    platform: "iOS",
-    duration: "00:42",
     reelLabel: "[ prototype reel ]",
     headline: "A new consumer app, launching in the App Store soon.",
     context:
@@ -107,13 +108,18 @@ export const contact = {
   heading: "Get in touch",
   description: "Tell me what you're building. I reply within a day or two.",
   email: "hello@adamtidwell.design",
-  emailLabel: "hello@adamtidwell.design",
   calEmbedPlaceholder: "[ cal.com booking embed ]",
 } as const;
 
+export const footer = {
+  left: "Adam Tidwell · 2026",
+  brand: "The Prince of Roanoke",
+  location: " · Dallas, TX",
+} as const;
+
 export const metadata = {
-  title: "Adam Tidwell — Product Designer",
+  title: "Adam Tidwell — Product designer · Dallas, Texas",
   description:
-    "Product designer in Dallas. 200+ apps shipped, used 38 million times to help close deals for half a million real estate pros.",
+    "I help small teams ship better products. 200+ apps, used 38 million times to help close deals for half a million real estate pros.",
   url: "https://adamtidwell.design",
 } as const;

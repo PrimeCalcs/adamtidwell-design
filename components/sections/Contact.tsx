@@ -1,37 +1,33 @@
 import Link from "next/link";
-import FadeIn from "@/components/ui/FadeIn";
 import Eyebrow from "@/components/ui/Eyebrow";
 import { contact } from "@/lib/content";
-import { preventWidows, tokens } from "@/lib/typography";
+import { tokens } from "@/lib/typography";
 
 export default function Contact() {
   return (
-    <section
-      id="contact"
-      className="mx-auto mt-24 max-w-content px-6 pb-28 md:mt-32 md:px-8"
-    >
-      <FadeIn>
-        <div className="rounded-2xl border border-line bg-surface p-8 md:p-12">
-          <Eyebrow as="h2">{contact.heading}</Eyebrow>
+    <div id="contact" className="mt-20 max-w-prose border-t border-line pt-8">
+      <Eyebrow as="h2" className="mb-6">
+        {contact.heading}
+      </Eyebrow>
 
-          <p className={`mt-4 max-w-prose text-muted ${tokens.lead}`}>
-            {preventWidows(contact.description)}
-          </p>
+      <p className="mb-6 text-[16.5px] leading-[1.7] text-[#444] [text-wrap:pretty]">
+        {contact.description}
+      </p>
 
-          <Link
-            href={`mailto:${contact.email}`}
-            className="mt-8 inline-block text-2xl font-medium tracking-tight text-foreground underline decoration-line underline-offset-[6px] transition-colors hover:decoration-foreground md:text-3xl"
-          >
-            {contact.emailLabel}
-          </Link>
+      <div className="my-3">
+        <Link
+          href={`mailto:${contact.email}`}
+          className={`${tokens.name} ${tokens.link}`}
+        >
+          {contact.email}
+        </Link>
+      </div>
 
-          <div className="mt-8 flex min-h-[220px] items-center justify-center rounded-xl border border-dashed border-line bg-background px-6 py-12 text-center">
-            <p className="font-mono text-[11px] uppercase tracking-label text-faint">
-              {contact.calEmbedPlaceholder}
-            </p>
-          </div>
-        </div>
-      </FadeIn>
-    </section>
+      <div
+        className={`mt-8 rounded-lg border border-dashed border-[#D8D3C6] px-7 py-9 text-center ${tokens.calEmbed}`}
+      >
+        {contact.calEmbedPlaceholder}
+      </div>
+    </div>
   );
 }

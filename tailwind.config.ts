@@ -13,11 +13,13 @@ const config: Config = {
         background: "#FBFAF7",
         surface: "#FFFFFF",
         ink: "#1A1A18",
-        foreground: "#1A1A18",
-        muted: "#55554F",
+        foreground: "#1A1A1A",
+        muted: "#555550",
         faint: "#9A958A",
-        label: "#B8B3A7",
+        label: "#AAAAAA",
         line: "#E6E2D8",
+        "line-warm": "#E6E1D6",
+        accent: "#2C4264",
         positive: "#3B9A5F",
       },
       fontFamily: {
@@ -25,11 +27,11 @@ const config: Config = {
         mono: ["var(--font-geist-mono)", "ui-monospace", "monospace"],
       },
       maxWidth: {
-        content: "1080px",
-        prose: "640px",
+        content: "760px",
+        prose: "580px",
       },
       letterSpacing: {
-        label: "0.16em",
+        label: "0.12em",
       },
       borderRadius: {
         phone: "28px",

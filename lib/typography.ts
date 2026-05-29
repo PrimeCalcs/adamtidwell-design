@@ -8,26 +8,44 @@
  * and wide-tracked monospace micro-labels.
  */
 export const tokens = {
-  /** Wide-tracked monospace micro-label (section eyebrows). */
+  /** Top nav monospace label. */
+  nav: "font-mono text-[11.5px] uppercase tracking-[0.06em] text-[#888]",
+  /** Section block label / eyebrow (What I do, Selected work, About...). */
   eyebrow: "font-mono text-[11px] uppercase tracking-label text-label",
-  /** Smaller mono meta line (work meta, footer). */
-  meta: "font-mono text-[11px] uppercase tracking-label text-faint",
-  /** Hero name. */
-  display:
-    "text-4xl font-medium tracking-tight text-foreground md:text-[3.25rem] md:leading-[1.05]",
-  /** Hero role / mono subtitle. */
-  role: "font-mono text-sm tracking-tight text-faint",
-  /** Large numeric stat value. */
-  stat: "text-3xl font-medium tracking-tight text-foreground md:text-4xl",
-  /** Service / section sub-heading. */
-  subhead: "text-xl font-medium text-foreground md:text-2xl",
-  /** Work headline. */
-  headline:
-    "text-balance text-2xl font-medium leading-snug text-foreground md:text-[1.75rem]",
+  /** Hero name + email — deliberately understated. */
+  name: "text-[22px] font-medium tracking-[-0.015em] text-foreground [text-wrap:balance]",
+  /** Hero role subtitle. */
+  role: "text-[16px] text-[#777]",
   /** Default body copy. */
-  body: "text-pretty text-base leading-relaxed md:text-[1.0625rem] md:leading-7",
-  /** Larger lead body copy (hero pitch, about). */
-  lead: "text-pretty text-lg leading-relaxed md:text-xl",
+  body: "text-[16.5px] leading-[1.7] text-foreground [text-wrap:pretty]",
+  /** Inline text link with navy underline. */
+  link: "text-foreground underline decoration-accent decoration-[1.5px] underline-offset-[4px]",
+  /** Proof numeric value (navy). */
+  proofNum: "text-[24px] font-medium tracking-[-0.02em] text-accent",
+  /** Proof label below the number. */
+  proofLabel: "font-mono text-[10.5px] uppercase tracking-[0.08em] leading-[1.4] text-[#999]",
+  /** Service row: number, name, body. */
+  serviceNum: "font-mono text-[11px] tracking-[0.06em] text-[#bbb]",
+  serviceName: "text-[15px] font-medium text-foreground",
+  serviceBody: "text-[15px] leading-[1.55] text-muted",
+  /** Project meta kicker. */
+  projMeta: "font-mono text-[11px] uppercase tracking-[0.08em] text-[#999]",
+  /** Project title. */
+  projTitle:
+    "text-[19px] font-medium tracking-[-0.01em] leading-[1.35] text-foreground [text-wrap:balance]",
+  /** Project body copy. */
+  projBody: "text-[15.5px] leading-[1.65] text-foreground [text-wrap:pretty]",
+  /** Project outcome (italic, ruled). */
+  outcome:
+    "text-[14.5px] italic leading-[1.6] text-muted [text-wrap:pretty] border-l-2 border-line-warm pl-[14px]",
+  /** Phone screen center label. */
+  phoneLabel: "font-mono text-[9.5px] uppercase tracking-[0.08em] text-faint",
+  /** Phone screen corner labels. */
+  phoneCorner: "font-mono text-[8px] uppercase tracking-[0.08em] text-[#b8b3a7]",
+  /** Cal embed placeholder. */
+  calEmbed: "font-mono text-[11.5px] uppercase tracking-[0.08em] text-label",
+  /** Footer monospace label. */
+  footer: "font-mono text-[11px] uppercase tracking-[0.1em] text-faint",
 } as const;
 
 /** Join the last two words so the final line never holds a lone word. */

@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: siteMetadata.title,
   description: siteMetadata.description,
   metadataBase: new URL(siteMetadata.url),
+  icons: {
+    icon: "/at-mark-square.png",
+  },
   openGraph: {
     title: siteMetadata.title,
     description: siteMetadata.description,

@@ -5,7 +5,7 @@ import WhatIDo from "@/components/sections/WhatIDo";
 import Work from "@/components/sections/Work";
 import About from "@/components/sections/About";
 import Contact from "@/components/sections/Contact";
-import { site } from "@/lib/content";
+import { footer } from "@/lib/content";
 import { tokens } from "@/lib/typography";
 
 export default function Home() {
@@ -13,7 +13,7 @@ export default function Home() {
     <>
       <Nav />
 
-      <main>
+      <main className="mx-auto max-w-content px-6 pb-40 pt-24">
         <Hero />
         <Proof />
         <WhatIDo />
@@ -22,11 +22,14 @@ export default function Home() {
         <Contact />
       </main>
 
-      <footer className="border-t border-line py-10">
-        <div className={`mx-auto flex max-w-content flex-col gap-2 px-6 md:flex-row md:items-center md:justify-between md:px-8 ${tokens.meta}`}>
-          <span>{site.name}</span>
-          <span>Product designer · Dallas, Texas</span>
-        </div>
+      <footer
+        className={`mx-auto mt-12 flex max-w-content items-center justify-between border-t border-line px-6 pb-14 pt-8 ${tokens.footer}`}
+      >
+        <span>{footer.left}</span>
+        <span>
+          <span className="text-accent">{footer.brand}</span>
+          {footer.location}
+        </span>
       </footer>
     </>
   );

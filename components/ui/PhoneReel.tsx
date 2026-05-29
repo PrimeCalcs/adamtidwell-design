@@ -1,52 +1,40 @@
-"use client";
-
-import { motion } from "framer-motion";
+import { tokens } from "@/lib/typography";
 
 type PhoneReelProps = {
-  duration: string;
-  platform: string;
+  /** Top-left corner label (project name). */
+  label: string;
+  /** Center screen label. */
   reelLabel: string;
 };
 
 /**
- * Portrait phone mockup with prototype-reel chrome.
- * The screen is an intentional neutral placeholder until real reels land.
+ * Phone mockup with a white screen and prototype-reel chrome.
+ * Neutral placeholder until real reels land.
  */
-export default function PhoneReel({
-  duration,
-  platform,
-  reelLabel,
-}: PhoneReelProps) {
+export default function PhoneReel({ label, reelLabel }: PhoneReelProps) {
   return (
-    <motion.div
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-      className="mx-auto w-full max-w-[260px] rounded-phone bg-surface p-2.5 shadow-card"
-    >
-      <div className="relative flex aspect-[9/18] flex-col justify-between overflow-hidden rounded-[20px] bg-ink p-4 text-background">
-        <div className="flex items-center justify-between">
-          <span className="font-mono text-[11px] tabular-nums text-background/70">
-            {duration}
-          </span>
-          <span className="rounded-full border border-background/20 px-2 py-0.5 font-mono text-[10px] uppercase tracking-label text-background/70">
-            {platform}
-          </span>
-        </div>
-
-        <div className="flex flex-col items-center gap-4">
-          <span
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-background/25 text-sm text-background/80"
-            aria-hidden
-          >
-            ▶
-          </span>
-          <span className="font-mono text-[11px] tracking-label text-background/40">
-            {reelLabel}
-          </span>
-        </div>
-
-        <div aria-hidden className="h-1 w-9 self-center rounded-full bg-background/15" />
+    <div className="w-[200px] rounded-phone bg-ink p-1.5 shadow-[0_24px_48px_-28px_rgba(0,0,0,0.18)]">
+      <div className="relative flex aspect-[9/19.5] items-center justify-center overflow-hidden rounded-[23px] bg-surface">
+        <span
+          aria-hidden
+          className="absolute left-1/2 top-2 h-[18px] w-16 -translate-x-1/2 rounded-full bg-ink"
+        />
+        <span className={`absolute left-[14px] top-[38px] ${tokens.phoneCorner}`}>
+          {label}
+        </span>
+        <span className={`absolute right-[14px] top-[38px] ${tokens.phoneCorner}`}>
+          00:42
+        </span>
+        <span className={`px-4 text-center ${tokens.phoneLabel}`}>
+          {reelLabel}
+        </span>
+        <span className={`absolute bottom-[14px] left-[14px] ${tokens.phoneCorner}`}>
+          iOS
+        </span>
+        <span className={`absolute bottom-[14px] right-[14px] ${tokens.phoneCorner}`}>
+          ▶
+        </span>
       </div>
-    </motion.div>
+    </div>
   );
 }
