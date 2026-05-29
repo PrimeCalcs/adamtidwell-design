@@ -1,31 +1,34 @@
 import FadeIn from "@/components/ui/FadeIn";
+import Eyebrow from "@/components/ui/Eyebrow";
 import { services } from "@/lib/content";
+import { preventWidows } from "@/lib/typography";
 
 export default function WhatIDo() {
   return (
-    <section className="border-t border-foreground/10">
-      <div className="mx-auto max-w-content px-6 py-24 md:px-8 md:py-32">
-        <FadeIn>
-          <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-            What I do
-          </h2>
-        </FadeIn>
+    <section className="mx-auto mt-24 max-w-content px-6 md:mt-32 md:px-8">
+      <FadeIn>
+        <Eyebrow as="h2">What I do</Eyebrow>
+      </FadeIn>
 
-        <ul className="mt-16 grid gap-16 md:grid-cols-3 md:gap-12">
-          {services.map((service, index) => (
-            <li key={service.title}>
-              <FadeIn delay={index * 0.1}>
-                <h3 className="font-display text-xl font-medium text-foreground">
+      <ul className="mt-8 divide-y divide-line border-y border-line">
+        {services.map((service, index) => (
+          <li key={service.title}>
+            <FadeIn delay={index * 0.08}>
+              <div className="grid grid-cols-1 gap-2 py-8 md:grid-cols-12 md:items-baseline md:gap-8">
+                <p className="font-mono text-xs text-faint md:col-span-1">
+                  0{index + 1}
+                </p>
+                <h3 className="text-xl font-medium text-foreground md:col-span-3 md:text-2xl">
                   {service.title}
                 </h3>
-                <p className="mt-4 text-base leading-relaxed text-muted">
-                  {service.description}
+                <p className="text-pretty text-base leading-relaxed text-muted md:col-span-8 md:text-[1.0625rem] md:leading-7">
+                  {preventWidows(service.description)}
                 </p>
-              </FadeIn>
-            </li>
-          ))}
-        </ul>
-      </div>
+              </div>
+            </FadeIn>
+          </li>
+        ))}
+      </ul>
     </section>
   );
 }

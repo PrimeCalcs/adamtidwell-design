@@ -1,24 +1,22 @@
 import FadeIn from "@/components/ui/FadeIn";
+import Eyebrow from "@/components/ui/Eyebrow";
 import { about } from "@/lib/content";
+import { preventWidows } from "@/lib/typography";
 
 export default function About() {
   return (
-    <section className="border-t border-foreground/10">
-      <div className="mx-auto max-w-content px-6 py-24 md:px-8 md:py-32">
-        <FadeIn>
-          <h2 className="font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-            About
-          </h2>
-        </FadeIn>
+    <section className="mx-auto mt-24 max-w-content px-6 md:mt-32 md:px-8">
+      <FadeIn>
+        <Eyebrow as="h2">About</Eyebrow>
+      </FadeIn>
 
-        <FadeIn delay={0.1}>
-          <div className="mt-12 max-w-2xl space-y-6 text-lg leading-relaxed text-muted">
-            {about.paragraphs.map((paragraph) => (
-              <p key={paragraph.slice(0, 24)}>{paragraph}</p>
-            ))}
-          </div>
-        </FadeIn>
-      </div>
+      <FadeIn delay={0.08}>
+        <div className="mt-8 max-w-prose space-y-5 text-pretty text-lg leading-relaxed text-muted">
+          {about.paragraphs.map((paragraph) => (
+            <p key={paragraph.slice(0, 24)}>{preventWidows(paragraph)}</p>
+          ))}
+        </div>
+      </FadeIn>
     </section>
   );
 }
