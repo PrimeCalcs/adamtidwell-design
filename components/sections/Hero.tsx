@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { site, heroPitch } from "@/lib/content";
-import { tokens } from "@/lib/typography";
+import { tokens, preventWidows } from "@/lib/typography";
 
 export default function Hero() {
   return (
@@ -17,15 +17,19 @@ export default function Hero() {
       <div className={`mb-14 ${tokens.role}`}>{site.role}</div>
 
       <p className={`mb-6 ${tokens.body}`}>
-        {heroPitch.map((segment, i) =>
-          segment.strong ? (
+        {heroPitch.map((segment, i) => {
+          const text =
+            i === heroPitch.length - 1
+              ? preventWidows(segment.text)
+              : segment.text;
+          return segment.strong ? (
             <strong key={i} className="font-medium">
-              {segment.text}
+              {text}
             </strong>
           ) : (
-            <span key={i}>{segment.text}</span>
-          ),
-        )}
+            <span key={i}>{text}</span>
+          );
+        })}
       </p>
 
       <p className={tokens.body}>

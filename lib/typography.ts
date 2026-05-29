@@ -48,17 +48,11 @@ export const tokens = {
   footer: "font-mono text-[11px] uppercase tracking-[0.1em] text-faint",
 } as const;
 
-/** Join the last two words so the final line never holds a lone word. */
+/**
+ * Glue the last two words of a block with a non-breaking space so the final
+ * wrapped line never holds a single lone word. Whitespace elsewhere (including
+ * any leading space, which matters for inline segments) is preserved.
+ */
 export function preventWidows(text: string): string {
-  return text
-    .split(/(?<=[.!?])\s+/)
-    .map((sentence) => {
-      const words = sentence.trim().split(/\s+/);
-      if (words.length < 3) return sentence.trim();
-
-      const last = words.pop()!;
-      const secondLast = words.pop()!;
-      return [...words, `${secondLast}\u00A0${last}`].join(" ");
-    })
-    .join(" ");
+  return text.replace(/\s+(\S+)\s*$/, "\u00A0$1");
 }

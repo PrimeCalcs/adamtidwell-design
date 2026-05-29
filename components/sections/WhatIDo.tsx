@@ -1,13 +1,15 @@
 import Eyebrow from "@/components/ui/Eyebrow";
-import { services } from "@/lib/content";
-import { tokens } from "@/lib/typography";
+import { services, whatIDo } from "@/lib/content";
+import { tokens, preventWidows } from "@/lib/typography";
 
 export default function WhatIDo() {
   return (
     <div className="max-w-prose">
-      <Eyebrow as="h2" className="mb-6 mt-16">
+      <Eyebrow as="h2" className="mb-5 mt-16">
         What I do
       </Eyebrow>
+
+      <p className={`mb-8 ${tokens.body}`}>{preventWidows(whatIDo.subhead)}</p>
 
       <div>
         {services.map((service, index) => (
@@ -17,7 +19,9 @@ export default function WhatIDo() {
           >
             <span className={tokens.serviceNum}>0{index + 1}</span>
             <span className={tokens.serviceName}>{service.title}</span>
-            <span className={tokens.serviceBody}>{service.description}</span>
+            <span className={tokens.serviceBody}>
+              {preventWidows(service.description)}
+            </span>
           </div>
         ))}
       </div>

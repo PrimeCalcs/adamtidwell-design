@@ -30,24 +30,26 @@ export const heroPitch: { text: string; strong?: boolean }[] = [
 
 export const proofStats = [
   { value: "38M", label: "Calculations run" },
-  { value: "500K", label: "Real-estate pros reached" },
+  { value: "500K", label: "Real estate pros reached" },
   { value: "200+", label: "Apps shipped" },
 ] as const;
+
+export const whatIDo = {
+  subhead: "Strategy. Design. Build. Whatever your team needs to ship.",
+} as const;
 
 export const services = [
   {
     title: "Strategy",
-    description:
-      "Clarify the problem, define the bet, and align around a path forward.",
+    description: "Identify the goal. Plan the route. Execute.",
   },
   {
     title: "Design",
-    description: "Shape interfaces that feel inevitable, not ornamental.",
+    description: "Looks great. Easy to use. Moves naturally.",
   },
   {
     title: "Build",
-    description:
-      "Partner with engineering to ship polished product, not just polished decks.",
+    description: "Hand off the design. Work with the devs. Ship.",
   },
 ] as const;
 

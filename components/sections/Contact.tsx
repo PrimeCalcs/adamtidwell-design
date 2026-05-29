@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Eyebrow from "@/components/ui/Eyebrow";
 import { contact } from "@/lib/content";
-import { tokens } from "@/lib/typography";
+import { tokens, preventWidows } from "@/lib/typography";
 
 export default function Contact() {
   return (
@@ -11,7 +11,7 @@ export default function Contact() {
       </Eyebrow>
 
       <p className="mb-6 text-[16.5px] leading-[1.7] text-[#444] [text-wrap:pretty]">
-        {contact.description}
+        {preventWidows(contact.description)}
       </p>
 
       <div className="my-3">

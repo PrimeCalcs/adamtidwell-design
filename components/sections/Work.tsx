@@ -2,7 +2,7 @@ import FadeIn from "@/components/ui/FadeIn";
 import Eyebrow from "@/components/ui/Eyebrow";
 import PhoneReel from "@/components/ui/PhoneReel";
 import { workItems } from "@/lib/content";
-import { tokens } from "@/lib/typography";
+import { tokens, preventWidows } from "@/lib/typography";
 
 export default function Work() {
   return (
@@ -18,9 +18,13 @@ export default function Work() {
 
             <div>
               <div className={`mb-3 ${tokens.projMeta}`}>{item.meta}</div>
-              <h3 className={`mb-3.5 ${tokens.projTitle}`}>{item.headline}</h3>
-              <p className={`mb-4 ${tokens.projBody}`}>{item.context}</p>
-              <p className={tokens.outcome}>{item.outcome}</p>
+              <h3 className={`mb-3.5 ${tokens.projTitle}`}>
+                {preventWidows(item.headline)}
+              </h3>
+              <p className={`mb-4 ${tokens.projBody}`}>
+                {preventWidows(item.context)}
+              </p>
+              <p className={tokens.outcome}>{preventWidows(item.outcome)}</p>
             </div>
           </div>
         </FadeIn>
