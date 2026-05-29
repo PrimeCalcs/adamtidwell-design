@@ -1,6 +1,6 @@
 export const site = {
   name: "Adam Tidwell",
-  role: "Product designer · Dallas, Texas",
+  role: "Design Engineer · Dallas, Texas",
   availability: "Available — Q3 2026",
   ctaLabel: "Book a call",
   ctaHref: "#contact",
@@ -118,7 +118,7 @@ export const footer = {
 } as const;
 
 export const metadata = {
-  title: "Adam Tidwell — Product designer · Dallas, Texas",
+  title: "Adam Tidwell — Design Engineer · Dallas, Texas",
   description:
     "I help small teams ship better products. 200+ apps, used 38 million times to help close deals for half a million real estate pros.",
   url: "https://adamtidwell.design",
