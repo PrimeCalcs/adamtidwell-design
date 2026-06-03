@@ -14,7 +14,11 @@ export default function Work() {
       {workItems.map((item, index) => (
         <FadeIn key={item.label} delay={index * 0.06}>
           <div className="mb-16 grid grid-cols-1 items-start gap-8 sm:grid-cols-[200px_1fr] sm:gap-10">
-            <PhoneReel label={item.label} reelLabel={item.reelLabel} />
+            <PhoneReel
+              label={item.label}
+              reelLabel={item.reelLabel}
+              video={item.video}
+            />
 
             <div>
               {item.status ? (
