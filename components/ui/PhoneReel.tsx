@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useRef, useState } from "react";
 import { tokens } from "@/lib/typography";
 
@@ -8,16 +9,23 @@ type PhoneReelProps = {
   label: string;
   /** Center screen label. */
   reelLabel: string;
-  /** Optional reel video; when set it fills the phone screen instead of the placeholder chrome. */
+  /** Optional static screenshot that fills the phone screen (takes priority over video). */
+  image?: string;
+  /** Optional reel video; when set it plays on hover / tap. */
   video?: string;
 };
 
 /**
- * Phone mockup with a white screen. When a reel video is provided it plays on
- * hover (desktop) or via the play/pause button (tap on mobile), so multiple
- * phones never all play at once. Falls back to neutral chrome with no video.
+ * Phone mockup with a white screen. Shows a static screenshot when provided;
+ * otherwise plays a reel video on hover (desktop) or via the play/pause button
+ * (tap on mobile). Falls back to neutral chrome when neither is set.
  */
-export default function PhoneReel({ label, reelLabel, video }: PhoneReelProps) {
+export default function PhoneReel({
+  label,
+  reelLabel,
+  image,
+  video,
+}: PhoneReelProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [playing, setPlaying] = useState(false);
 
@@ -36,10 +44,18 @@ export default function PhoneReel({ label, reelLabel, video }: PhoneReelProps) {
     <div className="w-[200px] rounded-phone bg-ink p-1.5 shadow-[0_24px_48px_-28px_rgba(0,0,0,0.18)]">
       <div
         className="group relative flex aspect-[9/19.5] items-center justify-center overflow-hidden rounded-[23px] bg-surface"
-        onMouseEnter={video ? play : undefined}
-        onMouseLeave={video ? pause : undefined}
+        onMouseEnter={video && !image ? play : undefined}
+        onMouseLeave={video && !image ? pause : undefined}
       >
-        {video ? (
+        {image ? (
+          <Image
+            src={image}
+            alt={`${label} app screen`}
+            fill
+            sizes="200px"
+            className="object-cover"
+          />
+        ) : video ? (
           <>
             <video
               ref={videoRef}

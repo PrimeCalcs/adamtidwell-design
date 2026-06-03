@@ -17,6 +17,7 @@ export default function Work() {
             <PhoneReel
               label={item.label}
               reelLabel={item.reelLabel}
+              image={item.image}
               video={item.video}
             />
 

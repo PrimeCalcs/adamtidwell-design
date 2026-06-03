@@ -62,6 +62,8 @@ export type WorkItem = {
   reelLabel: string;
   /** Optional live-status pill shown beside the meta kicker (e.g. "Just released"). */
   status?: string;
+  /** Optional static screenshot shown inside the phone screen (takes priority over video). */
+  image?: string;
   /** Optional reel video that plays inside the phone screen. */
   video?: string;
   headline: string;
@@ -85,6 +87,7 @@ export const workItems: WorkItem[] = [
     label: "Rep Dash",
     meta: "Rep Dashboard · 2021 · Design + engineering",
     reelLabel: "[ prototype reel ]",
+    image: "/images/rep-dashboard.png",
     headline:
       "The control room behind 1,000+ title reps and their agent clients.",
     context:
