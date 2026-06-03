@@ -99,6 +99,7 @@ export const workItems: WorkItem[] = [
     label: "Driftless",
     meta: "Driftless · 2026 · Designer + builder",
     reelLabel: "[ prototype reel ]",
+    image: "/images/driftless.png",
     status: "Just released",
     headline: "A new consumer app, now live in the App Store.",
     context:
