@@ -76,7 +76,7 @@ export const workItems: WorkItem[] = [
     label: "PalmAgent",
     meta: "PalmAgent · 2017–2025 · Lead product designer",
     reelLabel: "[ prototype reel ]",
-    video: "/videos/palmagent.mp4",
+    image: "/images/palmagent.png",
     headline: "Closing-cost software used by 500,000 real estate pros.",
     context:
       "Lead product designer on a white-label calculator platform licensed by title companies nationwide. Twenty years across design, math, and backend architecture — shipping 200+ apps that have run over 38 million calculations.",
